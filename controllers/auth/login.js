@@ -18,7 +18,6 @@ class Login  {
         res.status(200).json({status:true, message:'Login Successful', token });
       });
     })
-
   }
 
 }

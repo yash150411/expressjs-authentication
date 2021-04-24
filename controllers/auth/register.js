@@ -49,7 +49,6 @@ class UserAuthController  {
         const uv = resp[0];
         const ogOtp = uv.otp;
         const ogToken = uv.verificationToken;
-        console.log(ogOtp, otp);
         if(ogToken === token && ogOtp === otp){
           // Its Verified
           User.findOne({email})
