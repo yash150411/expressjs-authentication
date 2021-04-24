@@ -1,4 +1,5 @@
 const UserVerification = require('../../models/userVerification');
+
 const saveOtpAndUserData = (otp, type , req, token) => {
   return new Promise((resolve, reject) => {
     const {email, ip, os, latitude, longitude} = req.body;

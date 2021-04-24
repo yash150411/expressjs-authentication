@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
-const {saveOtpAndUserData} = require('../../helpers/auth/saveOtpAndUserData');
+const { saveOtpAndUserData } = require('../../helpers/auth/saveOtpAndUserData');
 
 class Login  {
 
