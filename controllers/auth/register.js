@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
 const UserVerification = require('../../models/userVerification');
 const {saveOtpAndUserData} = require('../../helpers/auth/saveOtpAndUserData');
-const {sendEmailVerificationOtp} = require('../../helpers/auth/sendEmailVerificationOtp');
+const {sendEmailVerificationOtpMail} = require('../../local_modules/email');
 
 class UserAuthController  {
 
@@ -23,7 +23,7 @@ class UserAuthController  {
         // After Creating otp and token save it and then send the otp
         await saveOtpAndUserData(otp, 'register', req, token);
         // Sending the otp after saving it in db
-        await sendEmailVerificationOtp(otp, email);
+        sendEmailVerificationOtpMail(email,otp);
         // Sending the response
         res.status(200).json({status: true, message: 'Otp Sent', token});
       }catch(e){
