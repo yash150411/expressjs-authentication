@@ -9,7 +9,7 @@ class Login  {
     const {email, password} = req.body;
     User.findOne({email})
     .then(user => {
-      if(!user) return res.status(404).json({message: 'User not found'});
+      if(!user) return res.status(400).json({message: 'User not found'});
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (!isMatch)  return res.status(403).json({message: 'Incorrect Password'}); 
         saveOtpAndUserData(undefined, 'login' , req, undefined);
