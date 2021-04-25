@@ -20,7 +20,7 @@ class UserAuthController  {
       const token = jwt.sign(payload, `${process.env.SECRET_TOKEN}-customerVerification`, {expiresIn: '600s'});
       await saveOtpAndUserData(otp, 'register', req, token);
       sendEmailVerificationOtpMail(email,otp);
-      res.status(200).json({status: true, message: 'Otp Sent', token});
+      res.status(200).json({status: true, message: 'Otp Sent, please check your Email', token});
     }catch(e){
       logger.log(e);
       res.status(400).json({status: false, message: 'Something went wrong, Please try again'});

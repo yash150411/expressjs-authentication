@@ -7,7 +7,7 @@ const { setMongo } = require('./mongo');
 const { setRoutes } = require('./routes');
 dotenv.config();
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'https://react-authentication-eight.vercel.app'];
 app.use(cors({
   origin: function(origin, callback){
     if(!origin) return callback(null, true);
@@ -18,7 +18,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 3018));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
