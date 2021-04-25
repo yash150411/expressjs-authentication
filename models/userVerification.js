@@ -6,9 +6,6 @@ const userVerificationSchema = new mongoose.Schema({
   verificationToken: {type: String},
   otp: {type: Number},
   ip: {type: String},
-  latitude: {type: String},
-  longitude: {type: String},
-  os: {type: String}
 },{timestamps:true});
 
 module.exports = mongoose.model('UserVerification', userVerificationSchema);
